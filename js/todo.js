@@ -6,6 +6,10 @@ const divDone = document.querySelector("#done-title");
 
 const TODO_KEY = "to-do";
 const DONE_KEY = "done";
+
+const X_BUTTON_CLASSNAME = "x-button";
+const V_BUTTON_CLASSNAME = "v-button";
+
 let todoArray = [];
 let doneArray = [];
 
@@ -83,6 +87,7 @@ function paintDone(done) {
     deleteButton.innerText = "X";
 
     deleteButton.addEventListener("click", handleDeleteDone);
+    deleteButton.classList.add(X_BUTTON_CLASSNAME);
 
     li.appendChild(span);
     li.appendChild(deleteButton);
@@ -125,8 +130,9 @@ function paintTodo(newToDo) {
     deleteButton.innerText = "X";
 
     deleteButton.addEventListener("click", handleDeleteToDo);
+    deleteButton.classList.add(X_BUTTON_CLASSNAME);
     doneButton.addEventListener("click", handleDoneTodo);
-
+    doneButton.classList.add(V_BUTTON_CLASSNAME);
     li.appendChild(doneButton);
     li.appendChild(span);
     li.appendChild(deleteButton);

@@ -10,22 +10,24 @@ function onGeoOk(pos) {
             resp.json()
         )
         .then((data) => {
-            const weatherContainer = document.querySelector("#weather");
-            const city = document.createElement("span");
-            const weather = document.createElement("span");
-            const humiditiy = document.createElement("span");
-            const temp = document.createElement("span");
+            const weatherContainer = document.querySelector("#weatherContainer");
+
+            const cityContainer = weatherContainer.querySelector("#cityContainer");
+            const city = cityContainer.querySelector("#city");
+            const weather = cityContainer.querySelector("#weather");
+            const weatherIcon = cityContainer.querySelector("#icon-weather");
             
-            
+            const tempContainer = weatherContainer.querySelector("#tempContainer");
+            const humiditiy = tempContainer.querySelector("#humidity");
+            const temp = tempContainer.querySelector("#temp");
+        
+            weatherIcon.src = `./img/weather/${data.weather[0].icon}.png`;
             city.innerText = `${data.name}`;
             weather.innerText = `${data.weather[0].main}`;
-            humiditiy.innerText = `Humidity: ${data.main.humidity}`;
-            temp.innerText = `Temperature: ${Math.round(data.main.temp)} C `;
-            
-            weatherContainer.appendChild(city);
-            weatherContainer.appendChild(weather);
-            weatherContainer.appendChild(humiditiy);
-            weatherContainer.appendChild(temp);
+            humiditiy.innerText = `${data.main.humidity}%`;
+            temp.innerText = `${Math.round(data.main.temp)} 'C`;
+
+            weatherContainer.classList.remove("hidden");
         });
 }
 
