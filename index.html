@@ -5,9 +5,19 @@
         <link rel="stylesheet" href="./css/style.css" class="rel">
     </head>
     <body>
-        <h1>Greetings!</h1>
+        <div id="topbar">
+            <div id="weather"></div>
+        </div>
         <h3 class="js-date"></h3>
         <h2 class="js-clock"></h2>
+       
+        <div id="greeting" class="greeting">
+            <h1>Greetings!
+                <form id="name-form">
+                    <input type="text" placeholder="Your Name" requred />
+                </form>
+            </h1>
+        </div>      
         <form id="todo-form">
             <input type="text" placeholder="Write a To Do and Press Enter" required />
         </form>
@@ -17,7 +27,6 @@
             <h2 id="done-title">DONE</h2>
             <ul id="done-list"></ul>
         </div>
-        <script src="./js/background.js"></script>
         <script src="./js/backgroundImg.js"></script>
         <script src="./js/clock.js"></script>
         <script src="./js/geo.js"></script>
